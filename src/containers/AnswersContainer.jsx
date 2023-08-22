@@ -1,4 +1,4 @@
-const AnswersContainer = ({question, handleAnswerSelect}) => {
+const AnswersContainer = ({question, handleAnswerSelect, selectedAnswer}) => {
 
     const handleSelectOption = function(option){
         handleAnswerSelect(option)
@@ -7,7 +7,7 @@ const AnswersContainer = ({question, handleAnswerSelect}) => {
     return (
         <>
         <ul>
-            {question.options.map((option) => <li><input name="selectedAnswer" type="radio" value="{option}" onClick={() => handleSelectOption(option)} />{option}</li>)}
+            {question.options.map((option, index) => <li key={index}><input name="selectedAnswer" type="radio" value="{option}" checked={option == selectedAnswer} onClick={() => handleSelectOption(option)} />{option}</li>)}
         </ul>
         </>
     )

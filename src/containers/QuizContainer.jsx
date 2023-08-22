@@ -30,25 +30,28 @@ const Quiz = () => {
 
 
     const handleAnswerSelect = (selectedAnswer) => {
-        // const currentQuestion = questions.filter((question) => question.answer == selectedAnswer)
         const currentQuestion = questions[currentQuestionIndex]
 
         {currentQuestion.answer == selectedAnswer ? setScore((score+1)): null}
+        //if the answer that is selected is equal to the correct answer, add 1 to the score, otherwise do nothing
 
         setCurrentQuestionIndex(currentQuestionIndex+1)
         //using ++ to increment mutates the state
 
-        //reset the radio button value
-        setSelectedAnswer("")
+        //reset the radio button value, modify the state
+        setSelectedAnswer(selectedAnswer)
         
 
     }
 
     return (
         <>
-        <Score score={score}/> 
+        <Score score={score}/>
+        {questions.length == currentQuestionIndex ? "Well done!": <>
         <Question question={questions[currentQuestionIndex]}/>
-        <AnswersContainer question = {questions[currentQuestionIndex]} handleAnswerSelect={handleAnswerSelect}/>
+        <AnswersContainer selectedAnswer = {selectedAnswer} question = {questions[currentQuestionIndex]} handleAnswerSelect={handleAnswerSelect}/>
+        </>} 
+        
         
 
         </>
