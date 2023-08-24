@@ -1,14 +1,14 @@
 
 const Reset = () => {
-
+// window.location.reload()
 
     return (
         <>
         <p>You completed the quiz, well done!</p>
-        <button>Try again!</button>
+        <button >Try again!</button>
         </>
     )
-// onClick={() => }
+    // onClick={Reset}
 
 }
 
